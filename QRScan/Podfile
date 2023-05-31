@@ -6,6 +6,6 @@ target 'QRScan' do
   use_frameworks!
 
   # Pods for QRScan
-  pod 'GoogleMLKit/BarcodeScanning'
+  pod 'GoogleMLKit/BarcodeScanning', '3.2.0'
 
 end

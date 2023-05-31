@@ -11,6 +11,10 @@
 		165D7D052A2713B3009EF7B6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165D7D042A2713B3009EF7B6 /* ContentView.swift */; };
 		165D7D072A2713B4009EF7B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 165D7D062A2713B4009EF7B6 /* Assets.xcassets */; };
 		165D7D0A2A2713B4009EF7B6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 165D7D092A2713B4009EF7B6 /* Preview Assets.xcassets */; };
+		16BE25D32A272B7E0024A782 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BE25D22A272B7E0024A782 /* CameraView.swift */; };
+		16BE25D52A272BC90024A782 /* CameraViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BE25D42A272BC90024A782 /* CameraViewModel.swift */; };
+		16BE25DA2A273BC80024A782 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BE25D92A273BC80024A782 /* Camera.swift */; };
+		16BE25DC2A27403B0024A782 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BE25DB2A27403B0024A782 /* ImagePicker.swift */; };
 		EB54E96BD3285234F1ECD454 /* Pods_QRScan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F88CE84CEB1BB9ED90E1E55B /* Pods_QRScan.framework */; };
 /* End PBXBuildFile section */
 
@@ -20,6 +24,10 @@
 		165D7D042A2713B3009EF7B6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		165D7D062A2713B4009EF7B6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		165D7D092A2713B4009EF7B6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		16BE25D22A272B7E0024A782 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		16BE25D42A272BC90024A782 /* CameraViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewModel.swift; sourceTree = "<group>"; };
+		16BE25D92A273BC80024A782 /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
+		16BE25DB2A27403B0024A782 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		AA2ABDB85E4A3C7CEFB36CE4 /* Pods-QRScan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QRScan.release.xcconfig"; path = "Target Support Files/Pods-QRScan/Pods-QRScan.release.xcconfig"; sourceTree = "<group>"; };
 		CA69854F5490CC4F51730D95 /* Pods-QRScan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QRScan.debug.xcconfig"; path = "Target Support Files/Pods-QRScan/Pods-QRScan.debug.xcconfig"; sourceTree = "<group>"; };
 		F88CE84CEB1BB9ED90E1E55B /* Pods_QRScan.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QRScan.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -58,6 +66,7 @@
 		165D7D012A2713B3009EF7B6 /* QRScan */ = {
 			isa = PBXGroup;
 			children = (
+				16BE25D62A273A9C0024A782 /* Camera */,
 				165D7D022A2713B3009EF7B6 /* QRScanApp.swift */,
 				165D7D042A2713B3009EF7B6 /* ContentView.swift */,
 				165D7D062A2713B4009EF7B6 /* Assets.xcassets */,
@@ -74,13 +83,23 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		16BE25D62A273A9C0024A782 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				16BE25D22A272B7E0024A782 /* CameraView.swift */,
+				16BE25D42A272BC90024A782 /* CameraViewModel.swift */,
+				16BE25D92A273BC80024A782 /* Camera.swift */,
+				16BE25DB2A27403B0024A782 /* ImagePicker.swift */,
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
 		B0801CD78DD249CB496E72DC /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				CA69854F5490CC4F51730D95 /* Pods-QRScan.debug.xcconfig */,
 				AA2ABDB85E4A3C7CEFB36CE4 /* Pods-QRScan.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -206,6 +225,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16BE25D32A272B7E0024A782 /* CameraView.swift in Sources */,
+				16BE25DA2A273BC80024A782 /* Camera.swift in Sources */,
+				16BE25D52A272BC90024A782 /* CameraViewModel.swift in Sources */,
+				16BE25DC2A27403B0024A782 /* ImagePicker.swift in Sources */,
 				165D7D052A2713B3009EF7B6 /* ContentView.swift in Sources */,
 				165D7D032A2713B3009EF7B6 /* QRScanApp.swift in Sources */,
 			);
@@ -264,7 +287,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -318,7 +341,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -340,6 +363,8 @@
 				DEVELOPMENT_TEAM = 498J9TKTSM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "이 앱의 카메라를 사용하시려면 카메라 접근을 허용해주세요.";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "이 앱의 사진을 저장하시려면 앨범 쓰기 권한을 허용해주세요.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -352,6 +377,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.swiftlec.QRScan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -370,6 +398,8 @@
 				DEVELOPMENT_TEAM = 498J9TKTSM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "이 앱의 카메라를 사용하시려면 카메라 접근을 허용해주세요.";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "이 앱의 사진을 저장하시려면 앨범 쓰기 권한을 허용해주세요.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -382,6 +412,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.swiftlec.QRScan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -398,7 +431,7 @@
 				165D7D0C2A2713B4009EF7B6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		165D7D0D2A2713B4009EF7B6 /* Build configuration list for PBXNativeTarget "QRScan" */ = {
 			isa = XCConfigurationList;
@@ -407,7 +440,7 @@
 				165D7D0F2A2713B4009EF7B6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};
