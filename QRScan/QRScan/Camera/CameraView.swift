@@ -21,7 +21,7 @@ struct CameraView: View {
                     viewModel.configure()
                 }
                 .opacity(viewModel.shutterEffect ? 0 : 1)
-                .alert(isPresented: $viewModel.showAlert) { // <- 수정된 부분
+                .alert(isPresented: $viewModel.showAlert) {
                     if let scannedURL = viewModel.scannedURL {
                         return Alert(title: Text("QR Code"), message: Text(scannedURL.absoluteString), dismissButton: .default(Text("OK")))
                     } else if let scannedText = viewModel.scannedText {
