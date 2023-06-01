@@ -7,7 +7,6 @@
   - GoogleMLKit BarcodeScanning - v3.2.0
 <br/><br/>
 ----
-<br />
 
 ## 실행
 
