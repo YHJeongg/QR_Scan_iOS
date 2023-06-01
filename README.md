@@ -8,7 +8,7 @@
 <br/><br/>
 ----
 
-## 실행
+### BarcodeScanning 설치
 
 ```Swift
 cd QRScan
