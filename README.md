@@ -19,8 +19,8 @@ pod install
  <br/><br/>
 
 >## <I> 기능 </I>
-1. 사진 촬영 기능 (갤러리에 사진 저장)
-2. 전면, 후면 카메라 전환 기능
+1. 전면, 후면 카메라 전환 기능
+2. 사진 촬영 기능 (갤러리에 사진 저장)
 3. 카메라에서 QR 코드 스캔 기능
 
 |                   카메라 전환 기능                   |                  사진 촬영                    |
@@ -30,4 +30,3 @@ pod install
 |                QR URL                 |                     QR Not URL                      |
 | :----------------------------------------------------------: | :----------------------------------------------------------: |
 | <img src="https://github.com/YHJeongg/QR_Scan_iOS/assets/97114061/c2b15919-3c65-4310-86b1-ca94d4640efb" alt="QR URL" width=95%> | <img src="https://github.com/YHJeongg/QR_Scan_iOS/assets/97114061/77bc46ba-5a38-4a33-9e9d-8abb49480c5f" alt="QR Not URL" width=95%> |
-<br/><br/>
