@@ -8,12 +8,16 @@
 import SwiftUI
 import AVFoundation
 import Combine
+import MLKit
 
-class CameraViewModel: ObservableObject {
+class CameraViewModel: NSObject, ObservableObject, AVCaptureVideoDataOutputSampleBufferDelegate {
+    
+    private var qrCodeReader: QRCodeReader?
     private let model: Camera
     private let session: AVCaptureSession
     private var subscriptions = Set<AnyCancellable>()
     private var isCameraBusy = false
+    
     let cameraPreview: AnyView
     let hapticImpact = UIImpactFeedbackGenerator()
 
@@ -21,6 +25,9 @@ class CameraViewModel: ObservableObject {
     @Published var isFlashOn = false
     @Published var isSilentModeOn = false
     @Published var shutterEffect = false
+    @Published var scannedURL: URL?
+    @Published var showAlert = false
+    @Published var scannedText: String?
     
     // 초기 세팅
     func configure() {
@@ -50,15 +57,70 @@ class CameraViewModel: ObservableObject {
         print("[CameraViewModel]: Camera changed!")
     }
     
-    init() {
+    func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
+        if qrCodeReader == nil {
+            qrCodeReader = QRCodeReader()
+            qrCodeReader?.delegate = self
+        }
+        
+        qrCodeReader?.scan(sampleBuffer: sampleBuffer)
+    }
+    
+    override init() {
         model = Camera()
         session = model.session
         cameraPreview = AnyView(CameraPreviewView(session: session))
+        
+        super.init()
+        
+        session.beginConfiguration()
+        
+        guard let videoDevice = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back),
+              let videoDeviceInput = try? AVCaptureDeviceInput(device: videoDevice),
+              session.canAddInput(videoDeviceInput) else {
+            fatalError("Could not configure video input")
+        }
+        
+        session.addInput(videoDeviceInput)
+        
+        let videoDataOutput = AVCaptureVideoDataOutput()
+        videoDataOutput.setSampleBufferDelegate(self, queue: DispatchQueue.global(qos: .userInteractive))
+        
+        guard session.canAddOutput(videoDataOutput) else {
+            fatalError("Could not configure video data output")
+        }
+        
+        session.addOutput(videoDataOutput)
+        session.commitConfiguration()
         
         model.$recentImage.sink { [weak self] (photo) in
             guard let pic = photo else { return }
             self?.recentImage = pic
         }
         .store(in: &self.subscriptions)
+    }
+}
+
+extension CameraViewModel: QRCodeReaderDelegate {
+    // URL 형식의 QR 코드 처리
+    func qrCodeReader(_ qrCodeReader: QRCodeReader, didScan url: URL) {
+        if UIApplication.shared.canOpenURL(url) {
+            // 스캔된 URL이 웹 페이지 URL인 경우 Safari를 사용하여 웹 페이지로 이동
+            UIApplication.shared.open(url)
+            scannedText = url.absoluteString
+        } else {
+            // 스캔된 URL이 웹 페이지 URL이 아닌 경우 정보를 화면에 표시
+            scannedURL = nil
+            scannedText = url.absoluteString
+        }
+        showAlert = true
+    }
+    
+    // 텍스트 형식의 QR 코드 처리
+    func qrCodeReader(_ qrCodeReader: QRCodeReader, didScan text: String) {
+        scannedURL = nil
+        scannedText = text
+        showAlert = true
+        print("1")
     }
 }

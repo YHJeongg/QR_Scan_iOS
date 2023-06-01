@@ -7,6 +7,7 @@
 
 import SwiftUI
 import AVFoundation
+import MLKitBarcodeScanning
 
 struct CameraView: View {
     @ObservedObject var viewModel = CameraViewModel()
@@ -20,6 +21,15 @@ struct CameraView: View {
                     viewModel.configure()
                 }
                 .opacity(viewModel.shutterEffect ? 0 : 1)
+                .alert(isPresented: $viewModel.showAlert) { // <- 수정된 부분
+                    if let scannedURL = viewModel.scannedURL {
+                        return Alert(title: Text("QR Code"), message: Text(scannedURL.absoluteString), dismissButton: .default(Text("OK")))
+                    } else if let scannedText = viewModel.scannedText {
+                        return Alert(title: Text("QR Code"), message: Text(scannedText), dismissButton: .default(Text("OK")))
+                    } else {
+                        return Alert(title: Text("QR Code"), message: nil, dismissButton: .default(Text("OK")))
+                    }
+                }
             VStack {
                 Spacer()
                 HStack{
@@ -69,6 +79,7 @@ struct CameraView: View {
                     .frame(width: 75, height: 75)
                     .padding()
                 }
+            
             }
             .foregroundColor(.white)
         }
@@ -92,10 +103,15 @@ struct CameraPreviewView: UIViewRepresentable {
     func makeUIView(context: Context) -> VideoPreviewView {
         let view = VideoPreviewView()
         
+        // 카메라 세션 지정(필수)
         view.videoPreviewLayer.session = session
+        // 기본 백그라운드 색을 지정
         view.backgroundColor = .black
+        // 카메라 프리뷰 ratio 조절(fit, fill)
         view.videoPreviewLayer.videoGravity = .resizeAspectFill
+        // 프리뷰 모서리에 corner radius를 결정
         view.videoPreviewLayer.cornerRadius = 0
+        // 비디오 기본 방향 지정. .portrait이 세로모드.
         view.videoPreviewLayer.connection?.videoOrientation = .portrait
 
         return view
