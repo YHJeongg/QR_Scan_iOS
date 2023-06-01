@@ -9,7 +9,7 @@
 ----
 
 ### BarcodeScanning 설치
-
+* 프로젝트 폴더 이동
 ```Swift
 cd QRScan
 pod install
