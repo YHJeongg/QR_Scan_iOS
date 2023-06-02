@@ -18,11 +18,13 @@ class QRCodeReader: NSObject {
     weak var delegate: QRCodeReaderDelegate?
 
     private let barcodeScanner: BarcodeScanner = {
+        // QR Code만 허용
         let barcodeOptions = BarcodeScannerOptions(formats: .qrCode)
         let barcodeScanner = BarcodeScanner.barcodeScanner(options: barcodeOptions)
         return barcodeScanner
     }()
 
+    // QR code Scan
     func scan(sampleBuffer: CMSampleBuffer) {
         let image = VisionImage(buffer: sampleBuffer)
         
@@ -40,9 +42,11 @@ class QRCodeReader: NSObject {
             var scannedText: String?
                         
             for barcode in barcodes {
+                // URL
                 if let urlString = barcode.url?.url {
                     scannedUrl = URL(string: urlString)
                     break
+                // 문자열
                 } else if let text = barcode.rawValue {
                     scannedText = text
                     break

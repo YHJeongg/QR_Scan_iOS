@@ -12,7 +12,7 @@ import MLKitBarcodeScanning
 struct CameraView: View {
     @ObservedObject var viewModel = CameraViewModel()
     @State private var openPhoto = false
-    @State private var selectImage = UIImage()
+    @State private var selectImage = UIImage() // 갤러리 사진 선택 (미사용)
 
     var body: some View {
         ZStack {
@@ -20,7 +20,10 @@ struct CameraView: View {
                 .onAppear {
                     viewModel.configure()
                 }
+                // 사진 촬영시 화면 깜빡임
                 .opacity(viewModel.shutterEffect ? 0 : 1)
+            
+                // QR code Scan시 Alert로 정보 표시
                 .alert(isPresented: $viewModel.showAlert) {
                     if let scannedURL = viewModel.scannedURL {
                         return Alert(title: Text("QR Code"), message: Text(scannedURL.absoluteString), dismissButton: .default(Text("OK")))

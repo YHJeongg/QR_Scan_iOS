@@ -30,3 +30,15 @@ pod install
 |                QR URL                 |                     QR Not URL                      |
 | :----------------------------------------------------------: | :----------------------------------------------------------: |
 | <img src="https://github.com/YHJeongg/QR_Scan_iOS/assets/97114061/c2b15919-3c65-4310-86b1-ca94d4640efb" alt="QR URL" width=95%> | <img src="https://github.com/YHJeongg/QR_Scan_iOS/assets/97114061/77bc46ba-5a38-4a33-9e9d-8abb49480c5f" alt="QR Not URL" width=95%> |
+
+<br />
+
+----
+### 프로젝트 구성
+- [Camera](https://github.com/YHJeongg/QR_Scan_iOS/tree/main/QRScan/QRScan/Camera)
+  - [Camera.swift](https://github.com/YHJeongg/QR_Scan_iOS/blob/main/QRScan/QRScan/Camera/Camera.swift) - 카메라와 관련된 기능을 처리하는 클래스
+  - [CameraView.swift](https://github.com/YHJeongg/QR_Scan_iOS/blob/main/QRScan/QRScan/Camera/CameraView.swift) - 카메라 화면을 표시하고 카메라 관련 버튼 및 기능을 제공하는 View
+  - [CameraViewModel.swift](https://github.com/YHJeongg/QR_Scan_iOS/blob/main/QRScan/QRScan/Camera/CameraViewModel.swift) - 카메라와 관련된 데이터와 로직을 처리하는 ViewModel 클래스
+- [Utils](https://github.com/YHJeongg/QR_Scan_iOS/tree/main/QRScan/QRScan/Utils)
+  - [ImagePicker.swift](https://github.com/YHJeongg/QR_Scan_iOS/blob/main/QRScan/QRScan/Utils/ImagePicker.swift) - 이미지 피커, 갤러리 확인용도
+  - [QRCodeReader.swift](https://github.com/YHJeongg/QR_Scan_iOS/blob/main/QRScan/QRScan/Utils/QRCodeReader.swift) - MLKit를 사용하여 QR 코드를 스캔하는 기능을 제공하는 클래스

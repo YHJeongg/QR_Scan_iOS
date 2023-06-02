@@ -79,6 +79,7 @@ class Camera: NSObject, ObservableObject {
         print("[Camera]: Photo's saved")
     }
     
+    // 카매라 전환
     func changeCamera() {
         let currentPosition = self.videoDeviceInput.device.position
         let preferredPosition: AVCaptureDevice.Position

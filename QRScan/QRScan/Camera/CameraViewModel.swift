@@ -22,8 +22,6 @@ class CameraViewModel: NSObject, ObservableObject, AVCaptureVideoDataOutputSampl
     let hapticImpact = UIImpactFeedbackGenerator()
 
     @Published var recentImage: UIImage?
-    @Published var isFlashOn = false
-    @Published var isSilentModeOn = false
     @Published var shutterEffect = false
     @Published var scannedURL: URL?
     @Published var showAlert = false
@@ -121,6 +119,5 @@ extension CameraViewModel: QRCodeReaderDelegate {
         scannedURL = nil
         scannedText = text
         showAlert = true
-        print("1")
     }
 }
